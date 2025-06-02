@@ -1,0 +1,5 @@
+action,rows_removed,count,description,rows_modified
+remove_duplicates,"[6316, 6318, 6320, 6322, 6353, 6355, 6357]",7.0,Removed 7 complete duplicate rows,
+fix_null_schadennummer,,3.0,"Fixed 3 null Schadennummer values, set to 'without_schadennummer' and Unique ID to 0","[6348, 6349, 6350]"
+remove_hash_duplicates,"[5944, 5946, 5948, 5950, 5952, 5954, 5956, 5958, 5960, 5962, 5964, 5966, 5968, 5970, 5972, 5974]",16.0,"Removed 16 duplicate rows based on # column, kept first occurrence",
+remove_schadennummer,,,Removed Schadennummer column for data privacy. Column had 1523 unique values,

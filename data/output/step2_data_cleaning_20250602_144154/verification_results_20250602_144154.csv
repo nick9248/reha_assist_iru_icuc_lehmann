@@ -1,0 +1,10 @@
+Metric,Value
+remaining_duplicates,0
+missing_unique_id,0
+unique_patients,1523
+Original rows,6358
+Current rows,6335
+Rows removed,23
+Original columns,26
+Current columns,25
+Columns removed,1

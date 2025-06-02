@@ -1,0 +1,2 @@
+Total_Valid_Patients,Average_Age,Median_Age,Standard_Deviation,Min_Age,Max_Age,Excluded_Missing_Age,Excluded_Age_Outliers,Shapiro_Wilk_Statistic,Shapiro_Wilk_P_Value,Age_Data_Normal_Distribution,Analysis_Date
+1394,50.094691535150645,53.0,17.25197535881925,3.0,94.0,129,0,0.9833736558925104,1.3985326156669758e-11,False,2025-06-02 15:45:18

@@ -1,0 +1,15 @@
+.env
+
+data/input
+code/test
+log
+
+data/output/step1_dataset_analysis_20250602_140758/id_translation_20250602_140758.csv
+data/output/step1_dataset_analysis_20250602_140758/schadennummer_duplicate_hash_20250602_140758.txt
+data/output/step2_data_cleaning_20250602_144154/dataset_cleaned_20250602_144154.csv
+documentation/old
+documentation/step1
+documentation/step2
+documentation/step3
+documentation/Analyseplan.docx
+documentation/Analyseplan_translated.docx

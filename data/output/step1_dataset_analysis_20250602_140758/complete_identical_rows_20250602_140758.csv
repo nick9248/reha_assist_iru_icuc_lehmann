@@ -1,0 +1,8 @@
+#,Unique ID,Schadennummer,Schadendatum,Alter-Unfall,birthdate,ICdCode,Kontaktdatum,Datum_der_Versorgung,NRS,FLScore,StatusFL,P,StatusP,Verlauf_entspricht_NBE,Risk Factor,nichtvorhanden,Nikotinabuses,Kortison,Krebsmedikamente,Ostheoporose,Multimorbiditaet,Adipostas,Diabetismellitus,Blutverduenner,Geschlecht
+276,1512.0,UUE21011772,2021-09-15,22.0,1999-06-08,T02.0,2023-03-02,2022-06-12,,,,,,,1.0,,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,w
+494,1512.0,UUE21011772,2021-09-15,22.0,1999-06-08,T02.0,2023-02-21,2022-06-12,,,,,,,1.0,,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,w
+1217,1512.0,UUE21011772,2021-09-15,22.0,1999-06-08,T02.0,2023-02-24,2022-06-12,,,,,,,1.0,,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,w
+2561,1512.0,UUE21011772,2021-09-15,22.0,1999-06-08,T02.0,2022-08-04,2022-06-12,1.0,2.0,unverändert,1.0,verbessert,0.0,1.0,,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,w
+585,,,2021-08-12,11.0,2010-07-13,S52.11,2021-11-26,2021-08-13,1.0,2.0,verbessert,1.0,verbessert,1.0,1.0,,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,w
+699,,,2021-08-12,11.0,2010-07-13,S52.11,2022-02-09,2021-08-13,1.0,1.0,verbessert,1.0,verbessert,1.0,1.0,,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,w
+1084,,,2021-08-12,11.0,2010-07-13,S52.11,2021-09-20,2021-08-13,3.0,3.0,verbessert,2.0,verbessert,1.0,1.0,,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,w

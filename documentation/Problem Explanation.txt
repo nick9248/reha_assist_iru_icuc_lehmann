@@ -1,0 +1,9 @@
+Problem Explanation:
+
+This is a dataset which has been extracted from the database. when our consultants call a patient they ask questions and fill in the data which can be found in the dataset excel file. 
+a consultant may call a patient multiple times. 
+one of the columns is Schadennummer which is the identifier of a patient, for data privacy I added a new column called Unique ID and assign a number (starts from 1) to each Schadennummer. for example if a consultant called a patient with Schadennummer 1234(assume we assigned Unique ID 1 to it) 3 times then we see 3 rows with Unique ID 1 and Schadennummer 1234. Therefore for data privacy we can drop col Schadennummer. 
+for the cols StatusFL and StatusP the values can be: verbessert which means getting better (we can assign 2 to it), unverändert which means no change (we can assign 1 to it),verschlechtert which means getting worse(we can assign 0 to it).
+FLScore and P are function limitation and pain score and the values can be from 0 ( best one and means no pain, function limitation) to 4 (worse maximum pain , function limitation) for each of them.
+
+there is a col which is Alter-Unfall, it shows the age on the accident date.

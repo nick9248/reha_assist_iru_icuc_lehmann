@@ -1,0 +1,2 @@
+Total_Valid_Patients,Male_Count,Female_Count,Male_Percentage,Female_Percentage,Excluded_Invalid_Gender,Chi_Square_Statistic,Chi_Square_P_Value,Significant_Difference_from_50_50,Analysis_Date
+1520,701,819,46.11842105263158,53.881578947368425,3,9.160526315789474,0.0024729143569173885,True,2025-06-02 15:45:18

@@ -1,0 +1,8 @@
+Column,Status,Description
+Unique ID,Found,Patient identifier
+Schadennummer,Found,Original patient number (can be dropped for privacy)
+StatusFL,Found,"Function limitation status (verbessert=2, unverändert=1, verschlechtert=0)"
+StatusP,Found,"Pain status (verbessert=2, unverändert=1, verschlechtert=0)"
+FLScore,Found,Function limitation score (0-4)
+P,Found,Pain score (0-4)
+Alter-Unfall,Found,Age at accident date

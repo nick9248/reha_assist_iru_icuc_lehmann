@@ -1,0 +1,4 @@
+Analysis,Result,Details
+Total Cases Advised,1523 unique patients,Excluded 0 patients with null ID
+Gender Distribution,"Männlich: 46.1%, Weiblich: 53.9%",Chi-Square test: Signifikant unterschiedlich von 50:50 (p=0.0025)
+Average Age,50.09 years (SD: 17.25),Normalverteilung: Nein (Shapiro-Wilk p=0.0000)
