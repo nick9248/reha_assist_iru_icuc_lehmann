@@ -1,0 +1,4 @@
+Gruppe,Gruppenname,N,Mittelwert,Median,Standardabweichung,Min,Max
+1,Ohne Stagnation,466,3.4527896995708156,3.0,2.4218811551915937,1,16
+2,Mit Stagnation,672,4.976190476190476,4.0,3.2357952900169304,1,27
+3,Mit Verschlechterung,122,5.557377049180328,5.0,3.272851463118086,1,18
