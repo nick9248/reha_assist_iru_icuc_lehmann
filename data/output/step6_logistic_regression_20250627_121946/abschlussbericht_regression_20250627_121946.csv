@@ -1,0 +1,7 @@
+Analyse,Ergebnis,Signifikant,Interpretation
+Spearman Korrelation: Heilungsgruppen vs Kontakte,"ρ = 0.2884, p = 0.0000",True,Korrelation ist schwach positiv
+Spearman Korrelation: Heilungsgruppen vs Anrufdauer,"ρ = 0.2098, p = 0.0000",True,Korrelation ist schwach positiv
+Logistische Regression: NBE-Vorhersage,"Modell mit 6 Prädiktoren, n=1075",True,Pseudo R² = 0.1169
+  Prädiktor: Schmerzwerte,"OR = 0.6499, p = 0.0001",True,verringert NBE-Wahrscheinlichkeit um 35.0%
+  Prädiktor: Schmerz-Status,"OR = 2.0745, p = 0.0001",True,erhöht NBE-Wahrscheinlichkeit um 107.5%
+  Prädiktor: Funktions-Status,"OR = 1.7524, p = 0.0077",True,erhöht NBE-Wahrscheinlichkeit um 75.2%

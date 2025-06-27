@@ -401,8 +401,9 @@ class LogisticRegressionAnalyzer:
 
         # Define variables for logistic regression
         dependent_var = 'Verlauf_entspricht_NBE'
-        independent_vars = ['P', 'FLScore', 'StatusP', 'StatusFL', 'Geschlecht', 'Alter-Unfall', 'Risk Factor']
-
+        #independent_vars = ['P', 'FLScore', 'StatusP', 'StatusFL', 'Geschlecht', 'Alter-Unfall', 'Risk Factor']
+        # Modified independent variables (remove Risk Factor, because of the mass reduction when we have Risk Factor)
+        independent_vars = ['P', 'FLScore', 'StatusP', 'StatusFL', 'Geschlecht', 'Alter-Unfall']
         print(f"\n📋 Logistic Regression Variables:")
         print(f"  Dependent Variable: {dependent_var} (NBE assessment)")
         print(f"  Independent Variables: {independent_vars}")
@@ -441,7 +442,7 @@ class LogisticRegressionAnalyzer:
         processed_vars = {}
 
         # Process numeric variables (already numeric)
-        numeric_vars = ['P', 'FLScore', 'Alter-Unfall', 'Risk Factor']
+        numeric_vars = ['P', 'FLScore', 'Alter-Unfall']
         for var in numeric_vars:
             if var in lr_data.columns:
                 # Convert to numeric, handling any string/object types
@@ -685,7 +686,8 @@ class LogisticRegressionAnalyzer:
             'StatusFL_numeric': 'Funktions-Status',
             'Gender_Male': 'Geschlecht (männlich)',
             'Alter-Unfall': 'Alter bei Unfall',
-            'Risk Factor': 'Risikofaktor'
+            # If you include risk factor then uncomment the line below
+            #'Risk Factor': 'Risikofaktor'
         }
 
         # Add German labels to plot data
