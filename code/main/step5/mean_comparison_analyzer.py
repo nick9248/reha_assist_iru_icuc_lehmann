@@ -515,8 +515,7 @@ class MeanComparisonAnalyzer:
             group_contacts = valid_contact_data[valid_contact_data['Healing_Group'] == group]['Contact_Count']
             if len(group_contacts) > 0:
                 contacts_by_group.append(group_contacts)
-                group_labels.append(f"Gruppe {group}\n{group_names[group]}\n(n={len(group_contacts)})")
-
+                group_labels.append(f"group {group}\n(n={len(group_contacts)})")
         if contacts_by_group:
             bp = plt.boxplot(contacts_by_group, labels=group_labels, patch_artist=True)
 
@@ -525,15 +524,14 @@ class MeanComparisonAnalyzer:
             for patch, color in zip(bp['boxes'], colors):
                 patch.set_facecolor(color)
 
-            plt.title('Kontaktanzahl nach Heilungsprozess-Gruppe', fontsize=16, fontweight='bold')
-            plt.xlabel('Heilungsprozess-Gruppe')
-            plt.ylabel('Anzahl Kontakte')
+            plt.title('Number of contacts per healing process group', fontsize=16, fontweight='bold')
+            plt.xlabel('group 1, group 2, group 3 (over all healing process group)')
+            plt.ylabel('number of contacts')
             plt.grid(True, alpha=0.3)
 
             # Add ANOVA result to plot
             if len(groups_contact_data) >= 2:
-                plt.text(0.02, 0.98, f'ANOVA: F={f_stat:.3f}, p={p_anova:.4f}',
-                         transform=plt.gca().transAxes, verticalalignment='top',
+                plt.text(0.02, 0.98, f'ANOVA=F{f_stat:.3f}; p={p_anova:.4f}',                         transform=plt.gca().transAxes, verticalalignment='top',
                          bbox=dict(boxstyle='round', facecolor='white', alpha=0.8))
 
             plt.tight_layout()
@@ -664,7 +662,7 @@ class MeanComparisonAnalyzer:
                     'male_pct': (male_count / total * 100) if total > 0 else 0,
                     'female_pct': (female_count / total * 100) if total > 0 else 0
                 })
-                group_labels.append(f"Gruppe {group}\n{group_names[group]}\n(n={total})")
+                group_labels.append(f"group {group}\n(n={total})")
 
         if plot_data:
             # Create percentage stacked bar chart
@@ -675,12 +673,12 @@ class MeanComparisonAnalyzer:
             bar_width = 0.6
             x = np.arange(len(groups))
 
-            p1 = plt.bar(x, male_pcts, bar_width, label='Männlich', color='lightblue', alpha=0.8)
-            p2 = plt.bar(x, female_pcts, bar_width, bottom=male_pcts, label='Weiblich', color='lightpink', alpha=0.8)
+            p1 = plt.bar(x, male_pcts, bar_width, label='male', color='lightblue', alpha=0.8)
+            p2 = plt.bar(x, female_pcts, bar_width, bottom=male_pcts, label='female', color='lightpink', alpha=0.8)
 
-            plt.title('Geschlechterverteilung nach Heilungsprozess-Gruppe', fontsize=16, fontweight='bold')
-            plt.xlabel('Heilungsprozess-Gruppe')
-            plt.ylabel('Prozent')
+            plt.title('Gender distribution per healing group', fontsize=16, fontweight='bold')
+            plt.xlabel('group 1, group 2, group 3 (over all healing process group)')
+            plt.ylabel('percentages')
             plt.xticks(x, group_labels)
             plt.legend()
             plt.grid(True, alpha=0.3, axis='y')
@@ -695,7 +693,7 @@ class MeanComparisonAnalyzer:
 
             # Add chi-square result to plot
             if 'chi2_stat' in locals():
-                plt.text(0.02, 0.98, f'Chi²={chi2_stat:.3f}, p={p_chi2:.4f}',
+                plt.text(0.02, 0.98, f'Chi²={chi2_stat:.3f}; p={p_chi2:.4f}',
                          transform=plt.gca().transAxes, verticalalignment='top',
                          bbox=dict(boxstyle='round', facecolor='white', alpha=0.8))
 

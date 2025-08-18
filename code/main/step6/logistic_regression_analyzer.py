@@ -301,33 +301,41 @@ class LogisticRegressionAnalyzer:
 
         # Plot 1: Healing Group vs Contact Count
         ax1.scatter(valid_data['Healing_Group'], valid_data['Contact_Count'], alpha=0.6, color='steelblue')
-        ax1.set_xlabel('Heilungsgruppe')
-        ax1.set_ylabel('Anzahl Kontakte')
-        ax1.set_title(f'Heilungsgruppe vs Kontaktanzahl\n(ρ={corr_contacts:.3f}, p={p_contacts:.4f})',
-                      fontweight='bold')
+        ax1.set_xlabel('group 1, group 2, group 3 (over all healing process group)')
+        ax1.set_ylabel('number of contacts')
+        ax1.set_title(
+            f'Frequency of contact vs. healing process groups\n(Spearman correlation = {corr_contacts:.3f}; p={p_contacts:.4f})',
+            fontweight='bold')
         ax1.grid(True, alpha=0.3)
         ax1.set_xticks([1, 2, 3])
-        ax1.set_xticklabels(['Ohne\nStagnation', 'Mit\nStagnation', 'Mit\nVerschlechterung'])
+        ax1.set_xticklabels(['group 1', 'group 2', 'group 3'])
 
         # Add trend line
         z = np.polyfit(valid_data['Healing_Group'], valid_data['Contact_Count'], 1)
         p = np.poly1d(z)
+        ax1.plot(valid_data['Healing_Group'], p(valid_data['Healing_Group']), "r--", alpha=0.8, linewidth=2,
+                 label='positive correlation trend')
+        ax1.legend()
         ax1.plot(valid_data['Healing_Group'], p(valid_data['Healing_Group']), "r--", alpha=0.8, linewidth=2)
 
         # Plot 2: Healing Group vs Duration (if data available)
         if len(duration_data) > 10:
             ax2.scatter(duration_data['Healing_Group'], duration_data['Duration_Days'], alpha=0.6, color='darkgreen')
-            ax2.set_xlabel('Heilungsgruppe')
-            ax2.set_ylabel('Dauer (Tage)')
-            ax2.set_title(f'Heilungsgruppe vs Anrufdauer\n(ρ={corr_duration:.3f}, p={p_duration:.4f})',
-                          fontweight='bold')
+            ax2.set_xlabel('group 1, group 2, group 3 (over all healing process group)')
+            ax2.set_ylabel('Duration of support (days)')
+            ax2.set_title(
+                f'Duration of support vs. healing process groups\n(Spearman correlation = {corr_duration:.3f}; p={p_duration:.4f})',
+                fontweight='bold')
             ax2.grid(True, alpha=0.3)
             ax2.set_xticks([1, 2, 3])
-            ax2.set_xticklabels(['Ohne\nStagnation', 'Mit\nStagnation', 'Mit\nVerschlechterung'])
+            ax2.set_xticklabels(['group 1', 'group 2', 'group 3'])
 
             # Add trend line
             z = np.polyfit(duration_data['Healing_Group'], duration_data['Duration_Days'], 1)
             p = np.poly1d(z)
+            ax2.plot(duration_data['Healing_Group'], p(duration_data['Healing_Group']), "r--", alpha=0.8, linewidth=2,
+                     label='positive correlation trend')
+            ax2.legend()
             ax2.plot(duration_data['Healing_Group'], p(duration_data['Healing_Group']), "r--", alpha=0.8, linewidth=2)
         else:
             ax2.text(0.5, 0.5, 'Unzureichende Daten\nfür Dauer-Analyse',
@@ -679,19 +687,27 @@ class LogisticRegressionAnalyzer:
             return
 
         # German variable names mapping
-        german_labels = {
-            'P': 'Schmerzwerte',
-            'FLScore': 'Funktionseinschränkung',
-            'StatusP_numeric': 'Schmerz-Status',
-            'StatusFL_numeric': 'Funktions-Status',
-            'Gender_Male': 'Geschlecht (männlich)',
-            'Alter-Unfall': 'Alter bei Unfall',
-            # If you include risk factor then uncomment the line below
-            #'Risk Factor': 'Risikofaktor'
+        # german_labels = {
+        #     'P': 'Schmerzwerte',
+        #     'FLScore': 'Funktionseinschränkung',
+        #     'StatusP_numeric': 'Schmerz-Status',
+        #     'StatusFL_numeric': 'Funktions-Status',
+        #     'Gender_Male': 'Geschlecht (männlich)',
+        #     'Alter-Unfall': 'Alter bei Unfall',
+        #     # If you include risk factor then uncomment the line below
+        #     #'Risk Factor': 'Risikofaktor'
+        # }
+        english_labels = {
+            'P': 'intensity of pain',
+            'FLScore': 'functional limitation',
+            'StatusP_numeric': 'pain progression',
+            'StatusFL_numeric': 'functional progression',
+            'Gender_Male': 'gender',
+            'Alter-Unfall': 'age',
         }
 
         # Add German labels to plot data
-        plot_data['German_Label'] = plot_data['Variable'].map(german_labels).fillna(plot_data['Variable'])
+        plot_data['English_Label'] = plot_data['Variable'].map(english_labels).fillna(plot_data['Variable'])
 
         fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(16, 8))
 
@@ -703,9 +719,9 @@ class LogisticRegressionAnalyzer:
         bars1 = ax1.barh(y_pos, plot_data['Coefficient'], color=colors, alpha=0.7)
 
         ax1.set_yticks(y_pos)
-        ax1.set_yticklabels(plot_data['German_Label'])
-        ax1.set_xlabel('Koeffizient')
-        ax1.set_title('Logistische Regression - Koeffizienten', fontsize=14, fontweight='bold')
+        ax1.set_yticklabels(plot_data['English_Label'])
+        ax1.set_xlabel('coefficient')
+        ax1.set_title('Logistic regression -- coefficient', fontsize=14, fontweight='bold')
         ax1.axvline(x=0, color='black', linestyle='--', alpha=0.5)
         ax1.grid(True, alpha=0.3)
 
@@ -724,9 +740,9 @@ class LogisticRegressionAnalyzer:
             ax2.plot([row['CI_Lower_95'], row['CI_Upper_95']], [i, i], 'k|', markersize=8, alpha=0.8)
 
         ax2.set_yticks(y_pos)
-        ax2.set_yticklabels(plot_data['German_Label'])
-        ax2.set_xlabel('Odds Ratio')
-        ax2.set_title('Odds Ratios mit 95% Konfidenzintervall', fontsize=14, fontweight='bold')
+        ax2.set_yticklabels(plot_data['English_Label'])
+        ax2.set_xlabel('odds ratio')
+        ax2.set_title('Odds ratios with 95% confidence interval', fontsize=14, fontweight='bold')
         ax2.axvline(x=1, color='black', linestyle='--', alpha=0.5)
         ax2.grid(True, alpha=0.3)
 
@@ -738,8 +754,8 @@ class LogisticRegressionAnalyzer:
         # Add legend
         from matplotlib.patches import Patch
         legend_elements = [
-            Patch(facecolor='red', alpha=0.7, label='Signifikant (p < 0,05)'),
-            Patch(facecolor='steelblue', alpha=0.7, label='Nicht signifikant'),
+            Patch(facecolor='red', alpha=0.7, label='Significant (p < 0.05)'),
+            Patch(facecolor='steelblue', alpha=0.7, label='Not significant'),
             plt.Line2D([0], [0], marker='*', color='w', markerfacecolor='black',
                        markersize=12, label='* p < 0,05')
         ]

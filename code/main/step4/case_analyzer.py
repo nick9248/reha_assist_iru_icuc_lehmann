@@ -132,9 +132,9 @@ class CaseAnalyzer:
         # Create histogram
         plt.figure(figsize=(12, 8))
         plt.hist(calls_per_patient, bins=range(1, max_calls + 2), edgecolor='black', alpha=0.7, color='skyblue')
-        plt.title('Verteilung der Anrufe pro Fall', fontsize=16, fontweight='bold')
-        plt.xlabel('Anzahl der Anrufe pro Fall')
-        plt.ylabel('Anzahl der Fälle')
+        plt.title('Frequency of contact', fontsize=16, fontweight='bold')
+        plt.xlabel('number of contacts per case')
+        plt.ylabel('number of cases')
         plt.grid(True, alpha=0.3)
 
         # Add average line
@@ -277,8 +277,8 @@ class CaseAnalyzer:
                           boxprops=dict(facecolor='lightblue', alpha=0.7),
                           medianprops=dict(color='red', linewidth=2))
 
-        ax1.set_title('Box-Plot: Anrufdauer pro Fall (alle Fälle)', fontsize=14, fontweight='bold')
-        ax1.set_ylabel('Dauer in Tagen')
+        ax1.set_title('Duration of support vs. healing process group', fontsize=14, fontweight='bold')
+        ax1.set_ylabel('Duration of support (days)')
         ax1.grid(True, alpha=0.3)
 
         # Add statistics text
@@ -298,8 +298,8 @@ class CaseAnalyzer:
             med_multiple = multiple_call_durations.median()
             std_multiple = multiple_call_durations.std()
 
-            ax2.set_title('Box-Plot: Anrufdauer pro Fall (nur Mehrfachanrufe)', fontsize=14, fontweight='bold')
-            ax2.set_ylabel('Dauer in Tagen')
+            ax2.set_title('Duration of support vs. healing process group', fontsize=14, fontweight='bold')
+            ax2.set_ylabel('Duration of support (days)')
             ax2.grid(True, alpha=0.3)
 
             stats_text2 = f'Mittelwert: {avg_multiple:.1f} Tage\nMedian: {med_multiple:.1f} Tage\nStd: {std_multiple:.1f} Tage'
