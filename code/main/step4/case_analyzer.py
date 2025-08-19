@@ -139,7 +139,7 @@ class CaseAnalyzer:
 
         # Add average line
         plt.axvline(average_calls, color='red', linestyle='--', linewidth=2,
-                    label=f'Durchschnitt: {average_calls:.2f}')
+                    label=f'mean: {average_calls:.2f}')
         plt.legend()
 
         plt.tight_layout()

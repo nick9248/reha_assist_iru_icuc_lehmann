@@ -3,8 +3,8 @@
 Dep. Variable:     Verlauf_entspricht_NBE   No. Observations:                 1075
 Model:                              Logit   Df Residuals:                     1068
 Method:                               MLE   Df Model:                            6
-Date:                    Fri, 27 Jun 2025   Pseudo R-squ.:                  0.1169
-Time:                            12:19:48   Log-Likelihood:                -484.66
+Date:                    Tue, 19 Aug 2025   Pseudo R-squ.:                  0.1169
+Time:                            11:40:00   Log-Likelihood:                -484.66
 converged:                           True   LL-Null:                       -548.84
 Covariance Type:                nonrobust   LLR p-value:                 2.847e-25
 ====================================================================================

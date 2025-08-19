@@ -301,7 +301,7 @@ class LogisticRegressionAnalyzer:
 
         # Plot 1: Healing Group vs Contact Count
         ax1.scatter(valid_data['Healing_Group'], valid_data['Contact_Count'], alpha=0.6, color='steelblue')
-        ax1.set_xlabel('group 1, group 2, group 3 (over all healing process group)')
+        ax1.set_xlabel('healing process groups')
         ax1.set_ylabel('number of contacts')
         ax1.set_title(
             f'Frequency of contact vs. healing process groups\n(Spearman correlation = {corr_contacts:.3f}; p={p_contacts:.4f})',
@@ -321,7 +321,7 @@ class LogisticRegressionAnalyzer:
         # Plot 2: Healing Group vs Duration (if data available)
         if len(duration_data) > 10:
             ax2.scatter(duration_data['Healing_Group'], duration_data['Duration_Days'], alpha=0.6, color='darkgreen')
-            ax2.set_xlabel('group 1, group 2, group 3 (over all healing process group)')
+            ax2.set_xlabel('healing process groups')
             ax2.set_ylabel('Duration of support (days)')
             ax2.set_title(
                 f'Duration of support vs. healing process groups\n(Spearman correlation = {corr_duration:.3f}; p={p_duration:.4f})',

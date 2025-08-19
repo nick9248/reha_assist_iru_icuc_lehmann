@@ -515,7 +515,7 @@ class MeanComparisonAnalyzer:
             group_contacts = valid_contact_data[valid_contact_data['Healing_Group'] == group]['Contact_Count']
             if len(group_contacts) > 0:
                 contacts_by_group.append(group_contacts)
-                group_labels.append(f"group {group}\n(n={len(group_contacts)})")
+                group_labels.append(f"group {group}")
         if contacts_by_group:
             bp = plt.boxplot(contacts_by_group, labels=group_labels, patch_artist=True)
 
@@ -525,7 +525,7 @@ class MeanComparisonAnalyzer:
                 patch.set_facecolor(color)
 
             plt.title('Number of contacts per healing process group', fontsize=16, fontweight='bold')
-            plt.xlabel('group 1, group 2, group 3 (over all healing process group)')
+            plt.xlabel('healing process groups')
             plt.ylabel('number of contacts')
             plt.grid(True, alpha=0.3)
 
@@ -662,7 +662,7 @@ class MeanComparisonAnalyzer:
                     'male_pct': (male_count / total * 100) if total > 0 else 0,
                     'female_pct': (female_count / total * 100) if total > 0 else 0
                 })
-                group_labels.append(f"group {group}\n(n={total})")
+                group_labels.append(f"group {group}")
 
         if plot_data:
             # Create percentage stacked bar chart
@@ -677,7 +677,7 @@ class MeanComparisonAnalyzer:
             p2 = plt.bar(x, female_pcts, bar_width, bottom=male_pcts, label='female', color='lightpink', alpha=0.8)
 
             plt.title('Gender distribution per healing group', fontsize=16, fontweight='bold')
-            plt.xlabel('group 1, group 2, group 3 (over all healing process group)')
+            plt.xlabel('healing process groups')
             plt.ylabel('percentages')
             plt.xticks(x, group_labels)
             plt.legend()
